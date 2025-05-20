@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Calendar, Trophy, User, Users } from "lucide-react";
+import { Calendar, Trophy, User, Users, Settings } from "lucide-react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -49,6 +49,13 @@ const Header = () => {
             >
               <Users className="mr-1 h-4 w-4" />
               <span>Rankings</span>
+            </Link>
+            <Link
+              to="/settings"
+              className="text-gray-700 hover:text-tennis-green flex items-center px-3 py-2 rounded-md text-sm font-medium"
+            >
+              <Settings className="mr-1 h-4 w-4" />
+              <span>Settings</span>
             </Link>
           </nav>
 
@@ -132,6 +139,13 @@ const Header = () => {
             onClick={toggleMenu}
           >
             Rankings
+          </Link>
+          <Link
+            to="/settings"
+            className="text-gray-700 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-medium"
+            onClick={toggleMenu}
+          >
+            Settings
           </Link>
           <div className="pt-4 pb-3 border-t border-gray-200">
             <div className="flex items-center px-3">

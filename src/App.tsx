@@ -11,6 +11,7 @@ import Register from "./pages/Register";
 import Courts from "./pages/Courts";
 import Tournaments from "./pages/Tournaments";
 import Rankings from "./pages/Rankings";
+import Settings from "./pages/Settings";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,7 @@ const App = () => (
           <Route path="/courts" element={<Courts />} />
           <Route path="/tournaments" element={<Tournaments />} />
           <Route path="/rankings" element={<Rankings />} />
+          <Route path="/settings" element={<Settings />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
