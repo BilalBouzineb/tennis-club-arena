@@ -2,17 +2,19 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Calendar, Trophy, User, Users, Settings } from "lucide-react";
+import { Calendar, Trophy, User, Users, Settings, Moon, Sun } from "lucide-react";
+import { useTheme } from "@/contexts/ThemeContext";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { darkMode, toggleDarkMode } = useTheme();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
+    <header className="bg-white dark:bg-gray-800 shadow-sm sticky top-0 z-50 dark:shadow-gray-900/30">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -21,7 +23,7 @@ const Header = () => {
               <div className="h-8 w-8 rounded-full bg-tennis-green flex items-center justify-center mr-2">
                 <span className="text-white font-bold">TC</span>
               </div>
-              <span className="text-xl font-bold text-tennis-green">
+              <span className="text-xl font-bold text-tennis-green dark:text-tennis-green-light">
                 Tennis Club RTCF
               </span>
             </Link>
@@ -31,38 +33,45 @@ const Header = () => {
           <nav className="hidden md:flex items-center space-x-4">
             <Link
               to="/courts"
-              className="text-gray-700 hover:text-tennis-green flex items-center px-3 py-2 rounded-md text-sm font-medium"
+              className="text-gray-700 dark:text-gray-300 hover:text-tennis-green dark:hover:text-tennis-green-light flex items-center px-3 py-2 rounded-md text-sm font-medium"
             >
               <Calendar className="mr-1 h-4 w-4" />
               <span>Courts</span>
             </Link>
             <Link
               to="/tournaments"
-              className="text-gray-700 hover:text-tennis-green flex items-center px-3 py-2 rounded-md text-sm font-medium"
+              className="text-gray-700 dark:text-gray-300 hover:text-tennis-green dark:hover:text-tennis-green-light flex items-center px-3 py-2 rounded-md text-sm font-medium"
             >
               <Trophy className="mr-1 h-4 w-4" />
               <span>Tournaments</span>
             </Link>
             <Link
               to="/rankings"
-              className="text-gray-700 hover:text-tennis-green flex items-center px-3 py-2 rounded-md text-sm font-medium"
+              className="text-gray-700 dark:text-gray-300 hover:text-tennis-green dark:hover:text-tennis-green-light flex items-center px-3 py-2 rounded-md text-sm font-medium"
             >
               <Users className="mr-1 h-4 w-4" />
               <span>Rankings</span>
             </Link>
             <Link
               to="/settings"
-              className="text-gray-700 hover:text-tennis-green flex items-center px-3 py-2 rounded-md text-sm font-medium"
+              className="text-gray-700 dark:text-gray-300 hover:text-tennis-green dark:hover:text-tennis-green-light flex items-center px-3 py-2 rounded-md text-sm font-medium"
             >
               <Settings className="mr-1 h-4 w-4" />
               <span>Settings</span>
             </Link>
+            <button
+              onClick={toggleDarkMode}
+              className="ml-2 p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+              aria-label="Toggle dark mode"
+            >
+              {darkMode ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
           </nav>
 
           {/* Authentication Links */}
           <div className="hidden md:flex items-center space-x-2">
             <Link to="/login">
-              <Button variant="outline" size="sm">
+              <Button variant="outline" size="sm" className="dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700">
                 Login
               </Button>
             </Link>
@@ -74,10 +83,17 @@ const Header = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center">
+            <button
+              onClick={toggleDarkMode}
+              className="mr-2 p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+              aria-label="Toggle dark mode"
+            >
+              {darkMode ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
             <button
               onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-tennis-green focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-tennis-green dark:hover:text-tennis-green-light focus:outline-none"
               aria-expanded={isMenuOpen}
             >
               <span className="sr-only">Open main menu</span>
@@ -118,39 +134,39 @@ const Header = () => {
 
       {/* Mobile Menu */}
       <div className={`${isMenuOpen ? "block" : "hidden"} md:hidden`}>
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t">
+        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t dark:border-gray-700">
           <Link
             to="/courts"
-            className="text-gray-700 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-medium"
+            className="text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium"
             onClick={toggleMenu}
           >
             Courts
           </Link>
           <Link
             to="/tournaments"
-            className="text-gray-700 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-medium"
+            className="text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium"
             onClick={toggleMenu}
           >
             Tournaments
           </Link>
           <Link
             to="/rankings"
-            className="text-gray-700 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-medium"
+            className="text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium"
             onClick={toggleMenu}
           >
             Rankings
           </Link>
           <Link
             to="/settings"
-            className="text-gray-700 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-medium"
+            className="text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium"
             onClick={toggleMenu}
           >
             Settings
           </Link>
-          <div className="pt-4 pb-3 border-t border-gray-200">
+          <div className="pt-4 pb-3 border-t border-gray-200 dark:border-gray-700">
             <div className="flex items-center px-3">
               <Link to="/login" className="block text-base font-medium px-3 py-2 w-full">
-                <Button variant="outline" size="sm" className="w-full">
+                <Button variant="outline" size="sm" className="w-full dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700">
                   Login
                 </Button>
               </Link>
