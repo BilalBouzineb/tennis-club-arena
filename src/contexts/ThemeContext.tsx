@@ -12,11 +12,15 @@ const ThemeContext = createContext<ThemeContextType>({
 });
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  // Initialize from localStorage if available, otherwise default to light mode
+  // Initialize from localStorage if available, otherwise detect user preference
   const [darkMode, setDarkMode] = useState(() => {
     if (typeof window !== "undefined") {
       const savedMode = localStorage.getItem("darkMode");
-      return savedMode === "true";
+      if (savedMode !== null) {
+        return savedMode === "true";
+      }
+      // Check for system preference if no saved preference
+      return window.matchMedia("(prefers-color-scheme: dark)").matches;
     }
     return false;
   });
@@ -31,6 +35,20 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     }
     localStorage.setItem("darkMode", darkMode.toString());
   }, [darkMode]);
+
+  // Listen for changes in system preference
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const handleChange = (e: MediaQueryListEvent) => {
+      // Only update if user hasn't explicitly set a preference
+      if (localStorage.getItem("darkMode") === null) {
+        setDarkMode(e.matches);
+      }
+    };
+
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
 
   const toggleDarkMode = () => {
     setDarkMode((prev) => !prev);

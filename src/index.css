@@ -14,10 +14,10 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 142 50% 34%;
+    --primary: 210 100% 42%;
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 210 100% 42%;
+    --secondary: 142 50% 34%;
     --secondary-foreground: 0 0% 98%;
 
     --muted: 210 40% 96.1%;
@@ -31,17 +31,17 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 142 50% 34%;
+    --ring: 210 100% 42%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 142 50% 34%;
+    --sidebar-background: 210 100% 42%;
     --sidebar-foreground: 0 0% 100%;
     --sidebar-primary: 54 100% 50%;
     --sidebar-primary-foreground: 222.2 47.4% 11.2%;
-    --sidebar-accent: 142 62% 39%;
+    --sidebar-accent: 210 90% 48%;
     --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 142 62% 39%;
+    --sidebar-border: 210 90% 48%;
     --sidebar-ring: 54 100% 50%;
   }
 
@@ -55,10 +55,10 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 142 50% 34%;
+    --primary: 210 100% 52%;
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 210 100% 42%;
+    --secondary: 142 50% 42%;
     --secondary-foreground: 0 0% 98%;
 
     --muted: 217.2 32.6% 17.5%;
@@ -72,15 +72,15 @@
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 142 50% 34%;
+    --ring: 210 100% 52%;
     
-    --sidebar-background: 142 36% 26%;
+    --sidebar-background: 210 90% 20%;
     --sidebar-foreground: 0 0% 98%;
     --sidebar-primary: 54 100% 50%;
     --sidebar-primary-foreground: 222.2 47.4% 11.2%;
-    --sidebar-accent: 142 43% 28%;
+    --sidebar-accent: 210 80% 30%;
     --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 142 43% 28%;
+    --sidebar-border: 210 80% 30%;
     --sidebar-ring: 54 100% 50%;
   }
 }
@@ -122,26 +122,26 @@
 
 @layer components {
   .tennis-gradient {
-    @apply bg-gradient-to-br from-tennis-green to-tennis-green-dark;
+    @apply bg-gradient-to-br from-primary to-primary/80;
   }
   
   .tennis-card {
-    @apply bg-white rounded-lg shadow-md p-6 border border-gray-100;
+    @apply bg-card rounded-lg shadow-md p-6 border border-border;
   }
   
   .tennis-button {
-    @apply bg-tennis-green hover:bg-tennis-green-dark text-white font-semibold py-2 px-4 rounded-md transition-colors;
+    @apply bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-2 px-4 rounded-md transition-colors;
   }
   
   .tennis-button-secondary {
-    @apply bg-tennis-blue hover:bg-tennis-blue-dark text-white font-semibold py-2 px-4 rounded-md transition-colors;
+    @apply bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold py-2 px-4 rounded-md transition-colors;
   }
   
   .tennis-input {
-    @apply w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-tennis-green focus:border-transparent;
+    @apply w-full px-4 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent;
   }
   
   .tennis-court {
-    @apply bg-tennis-court relative border-2 border-tennis-green rounded-md;
+    @apply bg-tennis-court relative border-2 border-secondary rounded-md;
   }
 }

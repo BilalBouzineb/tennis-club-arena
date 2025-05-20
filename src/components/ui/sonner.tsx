@@ -1,5 +1,4 @@
 
-import { useTheme as useNextTheme } from "next-themes"
 import { Toaster as Sonner, toast } from "sonner"
 import { useTheme } from "@/contexts/ThemeContext" 
 
