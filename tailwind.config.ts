@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,20 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				tennis: {
+					green: {
+						DEFAULT: '#2E7D32',
+						light: '#4CAF50',
+						dark: '#1B5E20'
+					},
+					blue: {
+						DEFAULT: '#1565C0',
+						light: '#1E88E5',
+						dark: '#0D47A1'
+					},
+					yellow: '#FFD600',
+					court: '#E8DFB0',
 				}
 			},
 			borderRadius: {
@@ -84,11 +99,16 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'bounce-horizontal': {
+					'0%, 100%': { transform: 'translateX(0)' },
+					'50%': { transform: 'translateX(10px)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'bounce-horizontal': 'bounce-horizontal 1s ease-in-out infinite'
 			}
 		}
 	},
