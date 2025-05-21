@@ -13,6 +13,11 @@ import Courts from "./pages/Courts";
 import Tournaments from "./pages/Tournaments";
 import Rankings from "./pages/Rankings";
 import Settings from "./pages/Settings";
+import Profile from "./pages/Profile";
+import Dashboard from "./pages/Dashboard";
+import Coaches from "./pages/Coaches";
+import ChatGroups from "./pages/ChatGroups";
+import ChatRoom from "./pages/ChatRoom";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +36,11 @@ const App = () => (
             <Route path="/tournaments" element={<Tournaments />} />
             <Route path="/rankings" element={<Rankings />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/coaches" element={<Coaches />} />
+            <Route path="/chat" element={<ChatGroups />} />
+            <Route path="/chat/:id" element={<ChatRoom />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
