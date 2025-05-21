@@ -1,4 +1,5 @@
 
+import React from "react"; // Make sure React is imported
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -20,36 +21,41 @@ import Coaches from "./pages/Coaches";
 import ChatGroups from "./pages/ChatGroups";
 import ChatRoom from "./pages/ChatRoom";
 
+// Create a QueryClient instance outside of the component
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <ThemeProvider>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/courts" element={<Courts />} />
-            <Route path="/my-bookings" element={<MyBookings />} />
-            <Route path="/tournaments" element={<Tournaments />} />
-            <Route path="/rankings" element={<Rankings />} />
-            <Route path="/settings" element={<Settings />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/coaches" element={<Coaches />} />
-            <Route path="/chat" element={<ChatGroups />} />
-            <Route path="/chat/:id" element={<ChatRoom />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
-    </ThemeProvider>
-  </QueryClientProvider>
-);
+const App: React.FC = () => {
+  return (
+    <React.StrictMode>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider>
+          <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/courts" element={<Courts />} />
+                <Route path="/my-bookings" element={<MyBookings />} />
+                <Route path="/tournaments" element={<Tournaments />} />
+                <Route path="/rankings" element={<Rankings />} />
+                <Route path="/settings" element={<Settings />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/coaches" element={<Coaches />} />
+                <Route path="/chat" element={<ChatGroups />} />
+                <Route path="/chat/:id" element={<ChatRoom />} />
+                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </BrowserRouter>
+          </TooltipProvider>
+        </ThemeProvider>
+      </QueryClientProvider>
+    </React.StrictMode>
+  );
+};
 
 export default App;
