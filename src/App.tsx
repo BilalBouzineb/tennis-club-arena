@@ -10,6 +10,7 @@ import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Courts from "./pages/Courts";
+import MyBookings from "./pages/MyBookings";
 import Tournaments from "./pages/Tournaments";
 import Rankings from "./pages/Rankings";
 import Settings from "./pages/Settings";
@@ -33,6 +34,7 @@ const App = () => (
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/courts" element={<Courts />} />
+            <Route path="/my-bookings" element={<MyBookings />} />
             <Route path="/tournaments" element={<Tournaments />} />
             <Route path="/rankings" element={<Rankings />} />
             <Route path="/settings" element={<Settings />} />
