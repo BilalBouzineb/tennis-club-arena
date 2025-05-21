@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Calendar, Trophy, Users } from "lucide-react";
+import CoinFlip from "@/components/CoinFlip";
 
 const Index = () => {
   return (
@@ -49,6 +50,16 @@ const Index = () => {
                 </div>
                 <div className="absolute -bottom-6 -right-6 h-32 w-32 rounded-full bg-tennis-yellow hidden md:block"></div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Coin Flip Section */}
+        <section className="py-16 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center mb-12">Try Your Luck</h2>
+            <div className="perspective-600">
+              <CoinFlip />
             </div>
           </div>
         </section>

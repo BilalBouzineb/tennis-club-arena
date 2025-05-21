@@ -103,6 +103,10 @@ export default {
 				'bounce-horizontal': {
 					'0%, 100%': { transform: 'translateX(0)' },
 					'50%': { transform: 'translateX(10px)' }
+				},
+				'flip': {
+					'0%': { transform: 'rotateY(0)' },
+					'100%': { transform: 'rotateY(720deg)' }
 				}
 			},
 			animation: {

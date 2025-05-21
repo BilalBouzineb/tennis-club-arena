@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -156,4 +155,17 @@
   .tennis-court {
     @apply bg-tennis-court relative border-2 border-secondary rounded-md;
   }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+}
+
+/* Add perspective for 3D transformations */
+.perspective-600 {
+  perspective: 600px;
 }
