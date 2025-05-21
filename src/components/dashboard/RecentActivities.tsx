@@ -1,7 +1,6 @@
-
 import React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Trophy, Calendar, Racket } from "lucide-react";
+import { Trophy, Calendar, Rocket } from "lucide-react";
 
 export const RecentActivities: React.FC = () => {
   // Mock data for activities

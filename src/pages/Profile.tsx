@@ -7,7 +7,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { User, Award, Calendar, Edit, Save } from "lucide-react";
+import { User, Award, Calendar, Edit, Save, Trophy } from "lucide-react";
 import { ProfileStats } from "@/components/profile/ProfileStats";
 import { ProfileHistory } from "@/components/profile/ProfileHistory";
 import { useToast } from "@/hooks/use-toast";
