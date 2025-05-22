@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Coins } from "lucide-react";
 
 type CoinSide = "heads" | "tails";
 
@@ -36,24 +35,38 @@ const CoinFlip = () => {
         <div className="relative h-40 w-40 mb-6">
           {/* Coin container */}
           <div 
-            className={`h-full w-full rounded-full bg-tennis-yellow shadow-lg absolute 
+            className={`h-full w-full rounded-full absolute 
               ${isFlipping ? 'animate-[flip_2s_linear]' : ''} 
               ${!isFlipping && result ? 
                 (result === 'heads' ? 'rotate-0' : 'rotate-y-180') : ''}`}
           >
-            {/* Heads side */}
-            <div className="absolute inset-0 bg-tennis-yellow rounded-full flex items-center justify-center backface-hidden">
-              <Coins className="h-20 w-20 text-white" />
+            {/* Heads side - Moroccan Dirham */}
+            <div className="absolute inset-0 rounded-full flex items-center justify-center backface-hidden overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-b from-amber-300 to-amber-500 rounded-full"></div>
+              <div className="absolute inset-1 rounded-full flex items-center justify-center">
+                <img 
+                  src="https://i.imgur.com/XgwMHo3.png" 
+                  alt="Moroccan Dirham Heads" 
+                  className="w-full h-full object-contain rounded-full"
+                />
+              </div>
               {!isFlipping && result === "heads" && (
-                <span className="absolute bottom-2 text-white font-bold">HEADS</span>
+                <span className="absolute bottom-1 text-white font-bold z-10 text-xs bg-black/50 px-2 py-0.5 rounded-full">HEADS</span>
               )}
             </div>
             
-            {/* Tails side */}
-            <div className="absolute inset-0 bg-tennis-green rounded-full flex items-center justify-center rotate-y-180 backface-hidden">
-              <Coins className="h-20 w-20 text-white" />
+            {/* Tails side - Moroccan Dirham */}
+            <div className="absolute inset-0 rounded-full flex items-center justify-center rotate-y-180 backface-hidden overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-b from-amber-300 to-amber-500 rounded-full"></div>
+              <div className="absolute inset-1 rounded-full flex items-center justify-center">
+                <img 
+                  src="https://i.imgur.com/tR7oa3q.png" 
+                  alt="Moroccan Dirham Tails" 
+                  className="w-full h-full object-contain rounded-full"
+                />
+              </div>
               {!isFlipping && result === "tails" && (
-                <span className="absolute bottom-2 text-white font-bold">TAILS</span>
+                <span className="absolute bottom-1 text-white font-bold z-10 text-xs bg-black/50 px-2 py-0.5 rounded-full">TAILS</span>
               )}
             </div>
           </div>
@@ -62,9 +75,9 @@ const CoinFlip = () => {
         <Button 
           onClick={flipCoin} 
           disabled={isFlipping}
-          className="mt-4"
+          className="mt-4 bg-amber-500 hover:bg-amber-600"
         >
-          {isFlipping ? "Flipping..." : "Flip Coin"}
+          {isFlipping ? "Flipping..." : "Flip Dirham"}
         </Button>
         
         {result && !isFlipping && (
