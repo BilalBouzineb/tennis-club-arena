@@ -45,4 +45,12 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    /**
+     * Get the player associated with the user.
+     */
+    public function player(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(Player::class);
+    }
 }
