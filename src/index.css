@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 120 61% 34%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 120 60% 95%;
+    --secondary-foreground: 120 61% 25%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 54 93% 62%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 120 61% 40%;
+
+    --radius: 0.5rem;
+
+    --chart-1: 120 61% 34%;
+    --chart-2: 54 93% 62%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 10% 3.9%;
+    --sidebar-primary: 120 61% 34%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 120 60% 92%;
+    --sidebar-accent-foreground: 120 61% 25%;
+    --sidebar-border: 240 5.9% 90%;
+    --sidebar-ring: 120 61% 40%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 120 50% 65%;
+    --primary-foreground: 120 61% 15%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 54 80% 55%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 120 50% 70%;
+
+    --chart-1: 120 50% 65%;
+    --chart-2: 54 80% 55%;
+    --chart-3: 197 37% 34%;
+    --chart-4: 43 74% 56%;
+    --chart-5: 27 87% 57%;
+    
+    --sidebar-background: 240 10% 3.9%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 120 50% 65%;
+    --sidebar-primary-foreground: 120 61% 15%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 120 50% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+  
+  h1 {
+    @apply text-4xl md:text-5xl;
+  }
+  
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+  
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+  
+  h4 {
+    @apply text-xl md:text-2xl;
+  }
+  
+  h5 {
+    @apply text-lg md:text-xl;
+  }
+}
+
+@layer components {
+  .tennis-gradient {
+    @apply bg-gradient-to-br from-primary to-primary/80;
+  }
+  
+  .tennis-card {
+    @apply bg-card rounded-lg shadow-md p-6 border border-border;
+  }
+  
+  .tennis-button {
+    @apply bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-2 px-4 rounded-md transition-colors;
+  }
+  
+  .tennis-button-secondary {
+    @apply bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold py-2 px-4 rounded-md transition-colors;
+  }
+  
+  .tennis-input {
+    @apply w-full px-4 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent;
+  }
+  
+  .tennis-court {
+    @apply bg-tennis-court relative border-2 border-secondary rounded-md;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+}
+
+/* Add perspective for 3D transformations */
+.perspective-600 {
+  perspective: 600px;
+}
